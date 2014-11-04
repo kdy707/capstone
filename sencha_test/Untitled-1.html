@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="lib/senchatouch-2.1.0-commercial/resources/css/sencha-touch.css"/>
+<script rel="text/javascript" src="/lib/senchatouch-2.1.0-commercial/sencha-touch-all-debug.js"></script>
+<script type="text/javascript">
+	Ext.application({
+		name : "MyWebApp",
+		launch : function() {
+			var panel1 = Ext.create("Ext.Panel", {
+				style : "background : yellow; color: red; text-align: center",
+				html : "<h1>Panel(1)</h1>",
+				width : "100%",
+				height : "100px"
+			});
+			
+			var panel2 = Ext.create("Ext.Panel", {
+				style : "background : yellow; color: red; text-align: center",
+				html : "<h1>Panle(2)</h1>",
+				width : "100%",
+				height : "100px"
+			});
+			
+			var rootPanel = Ext.create("Ext.Panel", {
+				width : "100%",
+				height : "100%",
+				items : [panle1, panel2]
+			});
+			
+			Ext.Viewport.add(rootPanel);
+			
+		}
+	});
+		
+		
+
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

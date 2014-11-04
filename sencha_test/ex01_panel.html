@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+<link rel="stylesheet" type="text/css" href="lib/senchatouch-2.1.0-commercial/resources/css/sencha-touch.css"/>
+<script rel="text/javascript" src="/lib/senchatouch-2.1.0-commercial/sencha-touch-all-debug.js"></script>
+
+<script type="text/javascript">
+
+Ext.application({
+	
+	name : "MyWebApp",
+	viewport : {
+		
+		autoMaximize : true
+	},
+	launch : function(){
+		
+		var panel = Ext.create("Ext.Panel", {
+			style : "background: -webkit-linear-gradient(top, rgb(250, 130, 250) 0%, rgb(255,255,255) 56%);",
+			html : "<h1 style='text-align : center; padding: 10px'>Hello Sencha Touch2</h1>"
+		});
+		Ext.Viewport.add(panel);
+	}
+	
+});
+
+
+
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

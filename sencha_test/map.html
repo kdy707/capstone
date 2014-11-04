@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sencha_class</title>
+
+<link rel="stylesheet" type="text/css" href="lib/senchatouch-2.1.0-commercial/resources/css/sencha-touch.css"/>
+<script rel="text/javascript" src="lib/senchatouch-2.1.0-commercial/sencha-touch-all-debug.js"></script>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC6QGH50DjFgJl1mSzdQhQXfdDXzICAJew&sensor=TRUE"></script>
+
+
+<script>
+	Ext.application({
+		name : "MyApp",
+		launch : function(){
+			//var toolbar = Ext.create("Ext.Toolbar", {
+			//	docked : "top",
+			//	title : "google Map"
+			//});
+
+			var mapComponent = Ext.create("Ext.Map");
+
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(
+					function (position) {
+						var lat = position.coords.latitude;
+						var lng = position.coords.longitude;
+						var latlng = new google.maps.LatLng(lat, lng);
+						var text_Latlng = new google.maps.LatLng(33.459000, 126.561693);
+						var googleMap = mapComponent.getMap();
+						googleMap.setZoom(16);
+						googleMap.setCenter(latlng);
+
+						var text_marker = new google.maps.Marker({
+							position : text_Latlng,
+							map : googleMap,
+							title : "Hello World!"
+						});
+
+						var my_location_marker = new google.maps.Marker({
+							position : latlng,
+							map : googleMap
+						});
+					},
+					function (error){
+						Ext.Msg.alert(error.message);
+					}
+				);
+			} else { 
+				Ext.Msg.alert("This browser is not supported");
+			}
+
+			var rootPanel = Ext.create("Ext.Panel", {
+				layout : "fit",
+				items : [mapComponent]
+			});
+			
+			Ext.Viewport.add(rootPanel);
+		}
+	});
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

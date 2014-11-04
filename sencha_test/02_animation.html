@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="lib/senchatouch-2.1.0-commercial/resources/css/sencha-touch.css"/>
+<script rel="text/javascript" src="/lib/senchatouch-2.1.0-commercial/sencha-touch-all-debug.js"></script>
+<script>
+
+	Ext.application({
+		
+		name : "MyApp",
+		launch : function() {
+			
+			var card1 = {
+				style : "background-image: -webkit-linear-gradient(top, rgb(235, 99, 26) 13%, rgb(250,245,247) 82%);",
+				html : "<h1 style='text-align: center; padding-top: 10px'>Card 1 </h1>"
+			};
+			
+			var card2 = {
+				style : "background-image: -webkit-linear-gradient(top, rgb(29, 235, 235) 13%, rgb(250,245, 247) 82%);",
+				html : "<h1 style='text-align: center; padding-to: 10px'>Card 2 </h1>"
+			};
+			
+			var card3 = {
+				style : "background-image: -webkit-linear-gradient(top, rgb(213, 211, 211) 13%, rgb(250, 245, 247) 82%);",
+				html : "<h1 style='text-align: center; padding-top: 10px'>Card 4</h1>"
+			}
+			
+			var card5 = Ext.create("Ext.Panel", {
+				
+				style: "background-image: -webkit-linear-gradient(top, rgb(0, 255, 0) 13%, rgb(250,245, 247) 82%);",
+				html : "<h1 style='text-align: center; padding-top: 10px'> Card 5 </h1>"
+			});
+			
+			var toolbar = Ext.create("Ext.Toolbar", {
+				docked : "top",
+				defaults: {ui : "confirm", flex: 1}, items:[
+				{text:"Card1", handler:function(btn, event) {
+					
+					rootPanel.getLayout().setAnimation({type : "slide", direction: "right"});
+					rootPanel.setActiveItem(0);	
+				}},
+				{text:"Card2", handler:function(btn, event){
+					rootPanel.getLayout().setAnimation("flip");
+					rootPanel.setActiveItem(1);	
+				}},
+				{text:"Card3", handler:function(btn, event){
+					rootPanel.getLayout().setAnimation("fade");
+					rootPanel.setActiveItem(card3);	
+				}},
+				{text:"Card4", handler:function(btn, event){
+					rootPanel.getLayout().setAnimation("pop");
+					rootPanel.setActiveItem(card4);
+				}},
+				{text:"Card5", handler:function(btn, event){
+					rootPanel.getLayout().setAnimation("pop");
+					rootPanel.setActiveItem(card5);
+				}}
+			]
+	});
+	
+	var rootPanel = Ext.create("Ext.Panel", {
+		layout : { type:"card", animation: {type: "slide", direction: "left"}},
+		defaults: {xtype: "panel"},
+		items : [toolbar, card1, card2]
+	});
+	
+	Ext.Viewport.add(rootPanel);
+		}
+	});
+</script>
+
+</head>
+
+<body>
+</body>
+</html>
