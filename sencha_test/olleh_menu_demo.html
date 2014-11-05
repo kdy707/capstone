@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>capstone activity bar</title>
+
+<link rel="stylesheet" type="text/css" href="lib/senchatouch-2.1.0-commercial/resources/css/sencha-touch.css"/>
+<script rel="text/javascript" src="lib/senchatouch-2.1.0-commercial/sencha-touch-all-debug.js"></script>
+
+<script>
+	Ext.application({
+		
+		name : "MyWebApp",
+		viewport : { autoMaximize : true},
+		launch : function() {
+			var spacer = { xtype : "spacer"}
+			var a_on_api_btn = { xtype : "button", text : "on api", ui : "action-round", handler:function(btn, event){
+				rootPanel.setActiveItem(1);}}
+			var a_off_api_btn = { xtype : "button", text : "off api", ui : "action-round", handler:function(btn, event){
+				rootPanel.setActiveItem(2);}}
+			
+			var OnHeaderBar = {
+				xtype : "toolbar",
+				title : "list of near by",
+				ui : "dark",
+				docked : "top",
+				items : [{text : "back", ui : "back"}, {xtype : "spacer"}, {iconCls : "search", iconMask : true, ui : "confirm"}]	
+			}
+			
+			var OffHeaderBar = {
+				xtype : "toolbar",
+				title : "serch menu",
+				ui : "confirm",
+				docked : "top",
+				items : [{text : "back", ui : "back"}, {xtype : "spacer"}, {iconCls : "search", iconMask : true, ui : "confirm"}]
+			}
+			
+			
+			var main_menu = {
+				xtype : "panel",
+				layout : {type : "hbox", align : "middle", pack : "center"},
+				style: "background : -webkit-linear-gradient(top, rgb(100, 130, 255) 13%, rgb(255,255,255) 56%);",
+				items : [spacer, a_on_api_btn, spacer, a_off_api_btn, spacer]
+			}
+			
+			var onApiMenu = {
+				xtype : "panel",
+				layout : {type : "hbox", align : "middle", pack : "center"},
+				style: "background : -webkit-linear-gradient(top, rgb(200, 130, 255) 13%, rgb(255,255,255) 56%);",
+				items : [OnHeaderBar]
+			}
+			
+			var OffApiMenu = {
+				xtype : "panel",
+				style : "background : -webkit-linear-gradient(top, rgb(200, 130, 255) 13%, rgb(255,255,255) 56%);",
+				items : [OffHeaderBar]
+			}
+				
+			var rootPanel = Ext.create("Ext.Panel",{
+				layout : "card",
+				items : [main_menu, onApiMenu, OffApiMenu]
+			});
+			
+			Ext.Viewport.add(rootPanel);
+		}
+	});
+
+
+
+
+
+function ex_munu(){
+Ext.application({
+    	viewport : {
+        	autoMaximize : true
+        },
+        launch : function() {
+        	var panel = Ext.create("Ext.Panel", {
+				style : "background : -webkit-linear-gradient(top, rgb(250,130,250) 0%, rgb(255,255,255) 56%);",
+				html : "<h1 style = 'text-align : center; padding: 10px'> Hellow </h1>",
+				flex : 1.5 
+			});
+				
+			var panel2 = Ext.create("Ext.Panel", {
+				style : "background : -webkit-linear-gradient(top, rgb(55,130,250) 0%, rgb(255,145,123) 56%);",
+				html : "<h1>Pannel2</h1>",
+				flex : 12	
+			});
+			
+			var rootPanel = Ext.create("Ext.Panel", {
+				layout : {type : "vbox", align : "stretch", pack : "justify"},
+				items : [panel, panel2]
+			});
+			
+		Ext.Viewport.add(rootPanel);
+		}
+});
+}
+
+ex_munu();
+</script>
+
+
+</head>
+
+<body>
+	
+
+</body>
+</html>
