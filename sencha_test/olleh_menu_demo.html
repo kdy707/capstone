@@ -6,6 +6,8 @@
 
 <link rel="stylesheet" type="text/css" href="lib/senchatouch-2.1.0-commercial/resources/css/sencha-touch.css"/>
 <script rel="text/javascript" src="lib/senchatouch-2.1.0-commercial/sencha-touch-all-debug.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC6QGH50DjFgJl1mSzdQhQXfdDXzICAJew&sensor=TRUE"></script>
+
 
 <script>
 	Ext.application({
@@ -50,10 +52,14 @@
 				items : [OnHeaderBar]
 			}
 			
+			var mapComponent = Ext.create("Ext.Map");
+			
 			var OffApiMenu = {
 				xtype : "panel",
-				style : "background : -webkit-linear-gradient(top, rgb(200, 130, 255) 13%, rgb(255,255,255) 56%);",
-				items : [OffHeaderBar]
+				layout : "fit",
+				//style : "background : -webkit-linear-gradient(top, rgb(200, 130, 255) 13%, rgb(255,255,255) 56%);",
+				items : [OffHeaderBar, mapComponent]
+				//map : function() {Ext.create("Ext.Map")}
 			}
 				
 			var rootPanel = Ext.create("Ext.Panel",{

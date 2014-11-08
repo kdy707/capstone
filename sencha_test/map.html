@@ -20,37 +20,14 @@
 			//});
 
 			var mapComponent = Ext.create("Ext.Map");
+			
+			//marker test code
 
-			if(navigator.geolocation){
-				navigator.geolocation.getCurrentPosition(
-					function (position) {
-						var lat = position.coords.latitude;
-						var lng = position.coords.longitude;
-						var latlng = new google.maps.LatLng(lat, lng);
-						var text_Latlng = new google.maps.LatLng(33.459000, 126.561693);
-						var googleMap = mapComponent.getMap();
-						googleMap.setZoom(16);
-						googleMap.setCenter(latlng);
+	
 
-						var text_marker = new google.maps.Marker({
-							position : text_Latlng,
-							map : googleMap,
-							title : "Hello World!"
-						});
-
-						var my_location_marker = new google.maps.Marker({
-							position : latlng,
-							map : googleMap
-						});
-					},
-					function (error){
-						Ext.Msg.alert(error.message);
-					}
-				);
-			} else { 
-				Ext.Msg.alert("This browser is not supported");
-			}
-
+					
+			//google.maps.event.addDomListener(window, 'load', mapComponent);
+			
 			var rootPanel = Ext.create("Ext.Panel", {
 				layout : "fit",
 				items : [mapComponent]
